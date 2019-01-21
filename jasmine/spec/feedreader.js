@@ -27,29 +27,33 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* 
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
-        it('url defined', function() {
+        it('url defined and not empty', function() {
             for(let feed of allFeeds) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
             }
         });
 
+        /* TODO: Write a test that loops through each feed
+         * in the allFeeds object and ensures it has a name defined
+         * and that the name is not empty.
+         */
+        it('Name defined and not empty', function() {
+            for(let feed of allFeeds) {
+                expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
+            }
+        });
+
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
-
     describe('The menu', function() {
-        /* TODO: Write a test that ensures the menu element is
+        /* 
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
@@ -62,7 +66,7 @@ $(function() {
           */
         it('is hidden', function() {
             const body = document.querySelector('body');
-            expect(body.classList.contains('menu-hidden')).toBeTruthy();
+            expect(body.classList.contains('menu-hidden')).toBe(true);
         });
 
         it('toggles correctly', function() {
@@ -70,13 +74,13 @@ $(function() {
             const menu = document.querySelector('.menu-icon-link');
 
             menu.click();
-            expect(body.classList.contains('menu-hidden')).toBeFalsy();
+            expect(body.classList.contains('menu-hidden')).toBe(false);
+            menu.click();
+            expect(body.classList.contains('menu-hidden')).toBe(true);
         });
     });
 
 
-
-    /* TODO: Write a new test suite named "Initial Entries" */
 
     describe('Initial Entries', function() {
         /* TODO: Write a test that ensures when the loadFeed
@@ -90,8 +94,8 @@ $(function() {
         });
 
         it('completes task', function(){
-            const feed = $('.feed');
-            expect(feed.children.length > 0).toBeTruthy();
+            const feed = $('.feed . entry');
+            expect(feed.children.length > 0).toBe(true);
         });
     });
 
